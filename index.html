@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perto de Você</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f1ff;
+  margin: 0;
+  text-align: center;
+  color: #44345c;
+}
+header {
+  background: #7952b3;
+  color: white;
+  padding: 35px 15px;
+}
+h1 {
+  font-size: 34px;
+}
+p {
+  font-size: 20px;
+}
+main {
+  max-width: 500px;
+  margin: 25px auto;
+  padding: 15px;
+}
+button {
+  display: block;
+  width: 100%;
+  padding: 22px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 18px;
+  font-size: 21px;
+  cursor: pointer;
+  color: #44345c;
+  background: #e6d7ff;
+}
+button:hover {
+  background: #d3bbff;
+}
+button:focus-visible {
+  outline: 3px solid #44345c;
+}
+#resultado {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+footer {
+  padding: 20px;
+  font-size: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>💜 Perto de Você</h1>
+<p>Conectando pessoas, criando amizades!</p>
+</header>
+
+<main>
+
+<h2>Olá! Que bom ter você aqui!</h2>
+<p>O que você gostaria de fazer hoje?</p>
+
+<button onclick="mostrar('conversar')">
+❤️ Quero conversar
+</button>
+
+<button onclick="mostrar('amigos')">
+💛 Fazer amizades
+</button>
+
+<button onclick="mostrar('humor')">
+💚 Como estou me sentindo?
+</button>
+
+<button onclick="mostrar('atividades')">
+🌷 Atividades e bem-estar
+</button>
+
+<button onclick="mostrar('companhia')">
+💜 Preciso de companhia
+</button>
+
+<div id="resultado" aria-live="polite">
+Escolha uma opção acima para começar!
+</div>
+
+</main>
+
+<footer>
+Projeto de Extensão — Saúde Mental e Vínculos Comunitários
+</footer>
+
+<script>
+function mostrar(opcao) {
+  let mensagem = "";
+
+  if (opcao === "conversar") {
+    mensagem = "❤️ Conversar faz bem! Em breve, você poderá encontrar pessoas para conversar.";
+  }
+
+  if (opcao === "amigos") {
+    mensagem = "💛 Novas amizades podem começar aqui! Estamos preparando esse espaço.";
+  }
+
+  if (opcao === "humor") {
+    mensagem = "💚 Seus sentimentos importam! Você pode compartilhar como está se sentindo com alguém de confiança.";
+  }
+
+  if (opcao === "atividades") {
+    mensagem = "🌷 Caminhar, ouvir música, dançar e participar de atividades em grupo são formas de cuidar do bem-estar.";
+  }
+
+  if (opcao === "companhia") {
+    mensagem = "💜 Você merece acolhimento e companhia! Estamos preparando uma forma segura de solicitar contato de uma rede de apoio.";
+  }
+
+  document.getElementById("resultado").textContent = mensagem;
+}
+</script>
+
+</body>
+</html>
