@@ -1,135 +1,213 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Perto de Você</title>
-
+<title>Perto de Você | Projeto de Extensão</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f7f1ff;
-  margin: 0;
-  text-align: center;
-  color: #44345c;
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f6f0ff;
+ color:#34254e;
 }
-header {
-  background: #7952b3;
-  color: white;
-  padding: 35px 15px;
+header{
+ background:#7952b3;
+ color:white;
+ text-align:center;
+ padding:35px 18px;
 }
-h1 {
-  font-size: 34px;
+header h1{font-size:34px;margin:0 0 12px}
+header p{font-size:19px;margin:0}
+main{max-width:650px;margin:auto;padding:20px 15px}
+.card{
+ background:white;
+ border-radius:20px;
+ padding:23px 18px;
+ margin-bottom:20px;
+ box-shadow:0 3px 12px #ded2ee;
+ text-align:center;
 }
-p {
-  font-size: 20px;
+.tag{
+ color:#7952b3;
+ font-size:14px;
+ font-weight:bold;
+ letter-spacing:1px;
 }
-main {
-  max-width: 500px;
-  margin: 25px auto;
-  padding: 15px;
+h2{font-size:24px;line-height:1.3}
+h3{font-size:21px}
+p{font-size:18px;line-height:1.5}
+.linha{
+ height:1px;
+ background:#e5d9f4;
+ margin:20px 0;
 }
-button {
-  display: block;
-  width: 100%;
-  padding: 22px;
-  margin: 15px 0;
-  border: none;
-  border-radius: 18px;
-  font-size: 21px;
-  cursor: pointer;
-  color: #44345c;
-  background: #e6d7ff;
+.integrantes{font-size:16px;line-height:1.8}
+button{
+ display:block;
+ width:100%;
+ padding:18px 12px;
+ margin:12px 0;
+ border:0;
+ border-radius:14px;
+ background:#e6d7ff;
+ color:#34254e;
+ font-size:19px;
+ font-weight:bold;
+ cursor:pointer;
 }
-button:hover {
-  background: #d3bbff;
+button:hover{background:#d7c1fc}
+button:focus-visible{outline:3px solid #55338e}
+.voltar{background:#7952b3;color:white}
+.escondido{display:none}
+.aviso{
+ background:#f6f0ff;
+ padding:14px;
+ border-radius:12px;
+ font-size:16px;
 }
-button:focus-visible {
-  outline: 3px solid #44345c;
+.resultado{
+ margin-top:15px;
+ font-size:19px;
+ line-height:1.5;
 }
-#resultado {
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  font-size: 20px;
-  margin-top: 20px;
-}
-footer {
-  padding: 20px;
-  font-size: 15px;
+footer{
+ text-align:center;
+ color:#67587d;
+ padding:15px;
+ font-size:14px;
 }
 </style>
 </head>
-
 <body>
 
 <header>
-<h1>💜 Perto de Você</h1>
-<p>Conectando pessoas, criando amizades!</p>
+<h1>💜 PERTO DE VOCÊ</h1>
+<p>Conectando pessoas, criando amizades.</p>
 </header>
 
 <main>
+<section id="inicio">
 
+<div class="card">
+<div class="tag">PROJETO DE EXTENSÃO UNIVERSITÁRIA</div>
+
+<h2>Saúde Mental, Solidão e Vínculos Comunitários de Pessoas Idosas</h2>
+
+<p>Professor orientador:<br>
+<strong>Leonardo Nolasco</strong></p>
+
+<div class="linha"></div>
+
+<h3>Integrantes do projeto</h3>
+<p class="integrantes">
+Hanna Beatriz • Júlio César • Yasmin Bezerra •
+Maria Eduarda Bronziado • Lívia Sacramento •
+Laís Santana
+</p>
+</div>
+
+<div class="card">
 <h2>Olá! Que bom ter você aqui!</h2>
 <p>O que você gostaria de fazer hoje?</p>
 
-<button onclick="mostrar('conversar')">
-❤️ Quero conversar
-</button>
-
-<button onclick="mostrar('amigos')">
-💛 Fazer amizades
-</button>
-
-<button onclick="mostrar('humor')">
-💚 Como estou me sentindo?
-</button>
-
-<button onclick="mostrar('atividades')">
-🌷 Atividades e bem-estar
-</button>
-
-<button onclick="mostrar('companhia')">
-💜 Preciso de companhia
-</button>
-
-<div id="resultado" aria-live="polite">
-Escolha uma opção acima para começar!
+<button onclick="abrir('conversar')">❤️ Quero conversar</button>
+<button onclick="abrir('amizades')">💛 Fazer amizades</button>
+<button onclick="abrir('sentimentos')">💚 Como estou me sentindo?</button>
+<button onclick="abrir('atividades')">🌷 Atividades e bem-estar</button>
+<button onclick="abrir('companhia')">💜 Preciso de companhia</button>
 </div>
 
+</section>
+
+<section id="conteudo" class="escondido">
+<div class="card" id="painel"></div>
+<button class="voltar" onclick="voltar()">← Voltar ao início</button>
+</section>
 </main>
 
 <footer>
-Projeto de Extensão — Saúde Mental e Vínculos Comunitários
+PERTO DE VOCÊ 💜<br>
+Projeto de Extensão Universitária
 </footer>
 
 <script>
-function mostrar(opcao) {
-  let mensagem = "";
+const telas = {
+conversar: `
+<h2>❤️ Quero conversar</h2>
+<p>Uma conversa pode transformar o seu dia!</p>
+<p>Estamos desenvolvendo um espaço para que pessoas possam conversar, compartilhar histórias e criar vínculos.</p>
+<p class="aviso">As conversas entre usuários ainda não estão disponíveis nesta versão.</p>
+`,
 
-  if (opcao === "conversar") {
-    mensagem = "❤️ Conversar faz bem! Em breve, você poderá encontrar pessoas para conversar.";
-  }
+amizades: `
+<h2>💛 Fazer amizades</h2>
+<p>Nunca é tarde para construir novas amizades!</p>
+<p>Que tal conhecer pessoas que gostam das mesmas coisas que você?</p>
+<button onclick="mostrar('Música, dança e canto podem aproximar pessoas com interesses parecidos.')">🎵 Música e dança</button>
+<button onclick="mostrar('Clubes de leitura e bibliotecas podem ser lugares de encontro.')">📚 Leitura</button>
+<button onclick="mostrar('Procure grupos de caminhada e atividades físicas adequadas à sua saúde.')">🚶 Caminhadas</button>
+<button onclick="mostrar('Oficinas de artesanato e pintura são oportunidades de convivência.')">🎨 Artes e hobbies</button>
+<div id="resultado" class="resultado" aria-live="polite"></div>
+`,
 
-  if (opcao === "amigos") {
-    mensagem = "💛 Novas amizades podem começar aqui! Estamos preparando esse espaço.";
-  }
+sentimentos: `
+<h2>💚 Como estou me sentindo?</h2>
+<p>Seus sentimentos importam. Como você está hoje?</p>
+<button onclick="sentir('feliz')">😊 Feliz</button>
+<button onclick="sentir('triste')">😢 Triste</button>
+<button onclick="sentir('sozinho')">💜 Sozinho</button>
+<button onclick="sentir('tranquilo')">🌷 Tranquilo</button>
+<div id="resultado" class="resultado" aria-live="polite"></div>
+`,
 
-  if (opcao === "humor") {
-    mensagem = "💚 Seus sentimentos importam! Você pode compartilhar como está se sentindo com alguém de confiança.";
-  }
+atividades: `
+<h2>🌷 Atividades e bem-estar</h2>
+<p>Pequenas atitudes podem fazer diferença no seu dia.</p>
+<button onclick="mostrar('Escolha uma música que você gosta e aproveite para cantar ou recordar bons momentos.')">🎵 Ouvir música</button>
+<button onclick="mostrar('Se for seguro para você, faça uma caminhada leve ou alguns movimentos confortáveis.')">🚶 Movimentar o corpo</button>
+<button onclick="mostrar('Ligue para alguém querido e pergunte como essa pessoa está.')">📞 Fazer uma ligação</button>
+<button onclick="mostrar('Experimente pintar, desenhar ou participar de uma oficina criativa.')">🎨 Criar algo</button>
+<div id="resultado" class="resultado" aria-live="polite"></div>
+`,
 
-  if (opcao === "atividades") {
-    mensagem = "🌷 Caminhar, ouvir música, dançar e participar de atividades em grupo são formas de cuidar do bem-estar.";
-  }
+companhia: `
+<h2>💜 Preciso de companhia</h2>
+<p>Você não precisa enfrentar a solidão sem apoio.</p>
+<p>Procure uma pessoa de confiança, participe de atividades comunitárias ou conheça grupos de convivência.</p>
+<p>Se a tristeza ou a solidão estiverem afetando sua vida, procure acolhimento em uma unidade de saúde.</p>
+<p class="aviso">Nosso objetivo é desenvolver conexões seguras entre pessoas. Essa funcionalidade ainda está em construção.</p>
+`
+};
 
-  if (opcao === "companhia") {
-    mensagem = "💜 Você merece acolhimento e companhia! Estamos preparando uma forma segura de solicitar contato de uma rede de apoio.";
-  }
+function abrir(tela){
+ document.getElementById('inicio').classList.add('escondido');
+ document.getElementById('conteudo').classList.remove('escondido');
+ document.getElementById('painel').innerHTML=telas[tela];
+ window.scrollTo(0,0);
+}
 
-  document.getElementById("resultado").textContent = mensagem;
+function voltar(){
+ document.getElementById('conteudo').classList.add('escondido');
+ document.getElementById('inicio').classList.remove('escondido');
+ window.scrollTo(0,0);
+}
+
+function mostrar(mensagem){
+ document.getElementById('resultado').textContent=mensagem;
+}
+
+function sentir(tipo){
+ const mensagens={
+ feliz:'Que bom! Compartilhar sua alegria com alguém pode tornar esse momento ainda melhor. 💛',
+ triste:'Tudo bem reconhecer a tristeza. Converse com alguém de confiança e procure apoio se precisar. 💜',
+ sozinho:'Você merece companhia e acolhimento. Uma atividade coletiva pode ser um primeiro passo para criar vínculos. 💜',
+ tranquilo:'Que bom encontrar um momento de paz! Aproveite para fazer algo de que gosta. 🌷'
+ };
+ mostrar(mensagens[tipo]);
 }
 </script>
-
 </body>
 </html>
