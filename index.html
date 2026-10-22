@@ -4,80 +4,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Perto de Você | Projeto de Extensão</title>
+<meta name="theme-color" content="#7952b3">
+<title>PERTO DE VOCÊ | Projeto de Extensão V</title>
 <style>
+:root{
+ --roxo:#7952b3;
+ --escuro:#392b51;
+ --claro:#f6f0ff;
+ --lilas:#e9dcff;
+}
 *{box-sizing:border-box}
 body{
  margin:0;
- font-family:Arial,sans-serif;
- background:#f6f0ff;
- color:#34254e;
+ background:var(--claro);
+ color:var(--escuro);
+ font-family:Arial,Helvetica,sans-serif;
 }
 header{
- background:#7952b3;
+ background:var(--roxo);
  color:white;
  text-align:center;
- padding:35px 18px;
+ padding:34px 18px;
 }
-header h1{font-size:34px;margin:0 0 12px}
-header p{font-size:19px;margin:0}
-main{max-width:650px;margin:auto;padding:20px 15px}
+header h1{
+ margin:0 0 12px;
+ font-size:34px;
+}
+header p{margin:0;font-size:19px}
+main{
+ max-width:680px;
+ margin:auto;
+ padding:22px 16px;
+}
 .card{
  background:white;
- border-radius:20px;
- padding:23px 18px;
+ padding:25px 20px;
+ border-radius:22px;
  margin-bottom:20px;
- box-shadow:0 3px 12px #ded2ee;
- text-align:center;
+ box-shadow:0 4px 16px #ded2ee;
 }
+.centro{text-align:center}
 .tag{
- color:#7952b3;
+ color:var(--roxo);
  font-size:14px;
  font-weight:bold;
  letter-spacing:1px;
 }
-h2{font-size:24px;line-height:1.3}
+h2{font-size:25px;line-height:1.3}
 h3{font-size:21px}
-p{font-size:18px;line-height:1.5}
+p{font-size:19px;line-height:1.5}
+.integrantes{font-size:16px;line-height:1.8}
 .linha{
  height:1px;
  background:#e5d9f4;
  margin:20px 0;
 }
-.integrantes{font-size:16px;line-height:1.8}
-button{
+button,.botao-link{
  display:block;
  width:100%;
- padding:18px 12px;
+ padding:18px 15px;
  margin:12px 0;
  border:0;
- border-radius:14px;
- background:#e6d7ff;
- color:#34254e;
+ border-radius:15px;
+ background:var(--lilas);
+ color:var(--escuro);
+ font-family:inherit;
  font-size:19px;
  font-weight:bold;
+ text-align:center;
+ text-decoration:none;
  cursor:pointer;
 }
-button:hover{background:#d7c1fc}
-button:focus-visible{outline:3px solid #55338e}
-.voltar{background:#7952b3;color:white}
-.escondido{display:none}
-.aviso{
- background:#f6f0ff;
- padding:14px;
- border-radius:12px;
- font-size:16px;
+button:hover,.botao-link:hover{
+ background:#d9c4ff;
 }
-.resultado{
- margin-top:15px;
- font-size:19px;
+button:focus-visible,.botao-link:focus-visible{
+ outline:3px solid #4b268a;
+ outline-offset:3px;
+}
+.voltar{
+ background:var(--roxo);
+ color:white;
+}
+.grupo{
+ border:2px solid #e8dcfa;
+ border-radius:17px;
+ padding:17px;
+ margin:14px 0;
+}
+.grupo h3{margin:0 0 8px}
+.grupo p{margin:0;font-size:17px}
+.grupo .botao-link{
+ background:#d8f3e2;
+ color:#175b36;
+}
+.aviso{
+ background:var(--claro);
+ padding:17px;
+ border-radius:14px;
+ margin-top:16px;
+ font-size:17px;
  line-height:1.5;
 }
+.resultado{
+ background:var(--claro);
+ border-radius:16px;
+ padding:20px;
+ margin-top:20px;
+ line-height:1.6;
+ font-size:19px;
+}
+.escondido{display:none}
 footer{
+ padding:24px;
  text-align:center;
- color:#67587d;
- padding:15px;
- font-size:14px;
+ font-size:15px;
+ color:#665879;
 }
 </style>
 </head>
@@ -89,10 +131,11 @@ footer{
 </header>
 
 <main>
+
 <section id="inicio">
 
-<div class="card">
-<div class="tag">PROJETO DE EXTENSÃO UNIVERSITÁRIA</div>
+<div class="card centro">
+<div class="tag">PROJETO DE EXTENSÃO V</div>
 
 <h2>Saúde Mental, Solidão e Vínculos Comunitários de Pessoas Idosas</h2>
 
@@ -109,105 +152,358 @@ Laís Santana
 </p>
 </div>
 
-<div class="card">
-<h2>Olá! Que bom ter você aqui!</h2>
-<p>O que você gostaria de fazer hoje?</p>
+<div class="card centro">
+<h2>Olá! Que bom ter você aqui! 🌷</h2>
 
-<button onclick="abrir('conversar')">❤️ Quero conversar</button>
-<button onclick="abrir('amizades')">💛 Fazer amizades</button>
-<button onclick="abrir('sentimentos')">💚 Como estou me sentindo?</button>
-<button onclick="abrir('atividades')">🌷 Atividades e bem-estar</button>
-<button onclick="abrir('companhia')">💜 Preciso de companhia</button>
+<p>Este é um espaço de acolhimento, amizade e bem-estar.</p>
+
+<p><strong>O que você gostaria de fazer hoje?</strong></p>
+
+<button onclick="abrir('amizades')">
+💜 Conversar e fazer amizades
+</button>
+
+<button onclick="abrir('sentimentos')">
+💚 Como estou me sentindo?
+</button>
+
+<button onclick="abrir('atividades')">
+🌷 Atividades e bem-estar
+</button>
+
+<button onclick="abrir('companhia')">
+🫂 Preciso de companhia
+</button>
 </div>
 
 </section>
 
 <section id="conteudo" class="escondido">
 <div class="card" id="painel"></div>
-<button class="voltar" onclick="voltar()">← Voltar ao início</button>
+
+<button class="voltar" onclick="voltar()">
+← Voltar ao início
+</button>
 </section>
+
 </main>
 
 <footer>
-PERTO DE VOCÊ 💜<br>
-Projeto de Extensão Universitária
+💜 PERTO DE VOCÊ<br>
+Projeto de Extensão V
 </footer>
 
 <script>
-const telas = {
-conversar: `
-<h2>❤️ Quero conversar</h2>
-<p>Uma conversa pode transformar o seu dia!</p>
-<p>Estamos desenvolvendo um espaço para que pessoas possam conversar, compartilhar histórias e criar vínculos.</p>
-<p class="aviso">As conversas entre usuários ainda não estão disponíveis nesta versão.</p>
-`,
 
-amizades: `
-<h2>💛 Fazer amizades</h2>
-<p>Nunca é tarde para construir novas amizades!</p>
-<p>Que tal conhecer pessoas que gostam das mesmas coisas que você?</p>
-<button onclick="mostrar('Música, dança e canto podem aproximar pessoas com interesses parecidos.')">🎵 Música e dança</button>
-<button onclick="mostrar('Clubes de leitura e bibliotecas podem ser lugares de encontro.')">📚 Leitura</button>
-<button onclick="mostrar('Procure grupos de caminhada e atividades físicas adequadas à sua saúde.')">🚶 Caminhadas</button>
-<button onclick="mostrar('Oficinas de artesanato e pintura são oportunidades de convivência.')">🎨 Artes e hobbies</button>
-<div id="resultado" class="resultado" aria-live="polite"></div>
-`,
+const grupos = [
+{
+nome:"🎵 Música e Dança",
+descricao:"Para compartilhar músicas favoritas, conversar sobre artistas, recordar canções e conhecer novas pessoas.",
+link:"https://chat.whatsapp.com/Eust7K3K0caKxtZXfqIt52"
+},
+{
+nome:"📚 Leitura e Histórias",
+descricao:"Para conversar sobre livros, poesias, histórias e lembranças especiais.",
+link:"https://chat.whatsapp.com/JZaTF8Cw63jAtd7GIR3uwJ"
+},
+{
+nome:"🚶 Caminhadas e Passeios",
+descricao:"Para trocar ideias sobre caminhadas, passeios e atividades de convivência.",
+link:"https://chat.whatsapp.com/GytKTueIioa9kvb3Ak4NTc"
+},
+{
+nome:"🎨 Artes e Artesanato",
+descricao:"Para compartilhar pintura, crochê, bordado, desenhos e outras atividades criativas.",
+link:"https://chat.whatsapp.com/BCMlHwiGpA98fDvKhurK8d"
+},
+{
+nome:"🫂 Roda de Conversa",
+descricao:"Nosso grupo geral! Para conversar sobre o dia a dia, compartilhar experiências e fazer amizades.",
+link:"https://chat.whatsapp.com/FFusY4ahQImCdwdM5guPIY"
+}
+];
 
-sentimentos: `
-<h2>💚 Como estou me sentindo?</h2>
-<p>Seus sentimentos importam. Como você está hoje?</p>
-<button onclick="sentir('feliz')">😊 Feliz</button>
-<button onclick="sentir('triste')">😢 Triste</button>
-<button onclick="sentir('sozinho')">💜 Sozinho</button>
-<button onclick="sentir('tranquilo')">🌷 Tranquilo</button>
-<div id="resultado" class="resultado" aria-live="polite"></div>
-`,
+function listaGrupos(){
+return grupos.map(grupo => `
+<div class="grupo">
+<h3>${grupo.nome}</h3>
+<p>${grupo.descricao}</p>
+<a class="botao-link"
+href="${grupo.link}"
+target="_blank"
+rel="noopener noreferrer">
+💬 Entrar no grupo pelo WhatsApp
+</a>
+</div>
+`).join("");
+}
 
-atividades: `
-<h2>🌷 Atividades e bem-estar</h2>
-<p>Pequenas atitudes podem fazer diferença no seu dia.</p>
-<button onclick="mostrar('Escolha uma música que você gosta e aproveite para cantar ou recordar bons momentos.')">🎵 Ouvir música</button>
-<button onclick="mostrar('Se for seguro para você, faça uma caminhada leve ou alguns movimentos confortáveis.')">🚶 Movimentar o corpo</button>
-<button onclick="mostrar('Ligue para alguém querido e pergunte como essa pessoa está.')">📞 Fazer uma ligação</button>
-<button onclick="mostrar('Experimente pintar, desenhar ou participar de uma oficina criativa.')">🎨 Criar algo</button>
-<div id="resultado" class="resultado" aria-live="polite"></div>
-`,
-
-companhia: `
-<h2>💜 Preciso de companhia</h2>
-<p>Você não precisa enfrentar a solidão sem apoio.</p>
-<p>Procure uma pessoa de confiança, participe de atividades comunitárias ou conheça grupos de convivência.</p>
-<p>Se a tristeza ou a solidão estiverem afetando sua vida, procure acolhimento em uma unidade de saúde.</p>
-<p class="aviso">Nosso objetivo é desenvolver conexões seguras entre pessoas. Essa funcionalidade ainda está em construção.</p>
-`
+const sentimentos = {
+feliz:{
+titulo:"😊 Que bom que você está feliz!",
+texto:"Sua alegria é muito especial. Aproveite esse momento e compartilhe coisas boas com as pessoas ao seu redor.",
+dicas:[
+"🎵 Ouça uma música que você ama.",
+"📞 Ligue para alguém e compartilhe uma boa notícia.",
+"🌷 Faça uma atividade de que você gosta.",
+"💜 Entre em um dos nossos grupos para conversar."
+]
+},
+triste:{
+titulo:"😢 Está se sentindo triste?",
+texto:"Todos nós temos dias difíceis. Você merece acolhimento e cuidado. Não precisa guardar tudo para si.",
+dicas:[
+"🚿 Tome um banho confortável e relaxante.",
+"🛏️ Descanse um pouco, se estiver precisando.",
+"📖 Leia algo leve e agradável.",
+"📞 Converse com alguém de confiança.",
+"💜 Procure apoio profissional se a tristeza persistir."
+]
+},
+cansado:{
+titulo:"😴 Está se sentindo cansado?",
+texto:"Seu corpo e sua mente também precisam de descanso. Respeite seus limites.",
+dicas:[
+"💧 Beba um copo de água.",
+"🛏️ Descanse em um lugar confortável.",
+"🚿 Tome um banho relaxante.",
+"🎵 Escute uma música tranquila.",
+"🌙 Procure manter uma boa rotina de sono."
+]
+},
+sozinho:{
+titulo:"🫂 Está se sentindo sozinho?",
+texto:"Você merece companhia, amizade e boas conversas. Existem pessoas que também querem criar novos vínculos.",
+dicas:[
+"💬 Entre em um dos nossos grupos de conversa.",
+"📞 Ligue para alguém querido.",
+"☕ Convide uma pessoa de confiança para conversar.",
+"🌷 Participe de uma atividade comunitária.",
+"📚 Compartilhe uma história ou lembrança."
+]
+},
+ansioso:{
+titulo:"😰 Está se sentindo ansioso?",
+texto:"Procure um momento de tranquilidade. Você não precisa resolver tudo de uma vez.",
+dicas:[
+"🌬️ Respire devagar, de maneira confortável.",
+"🪑 Sente-se em um lugar tranquilo.",
+"🎵 Ouça uma música suave.",
+"📵 Faça uma pausa das notícias e do celular.",
+"💜 Converse com alguém de confiança."
+]
+},
+tranquilo:{
+titulo:"😌 Que bom estar tranquilo!",
+texto:"Momentos de paz também merecem ser aproveitados.",
+dicas:[
+"📖 Leia um livro ou uma poesia.",
+"🌱 Cuide de uma planta.",
+"☕ Prepare uma bebida de que gosta.",
+"🎨 Faça uma atividade criativa.",
+"💜 Compartilhe esse momento com alguém."
+]
+},
+animado:{
+titulo:"🥰 Que bom que você está animado!",
+texto:"Aproveite essa energia para fazer algo que traga alegria ao seu dia.",
+dicas:[
+"💃 Dance uma música de que gosta, se puder.",
+"🎨 Comece um pequeno projeto criativo.",
+"📞 Convide alguém para conversar.",
+"🚶 Faça uma caminhada adequada à sua condição física.",
+"💜 Compartilhe sua animação nos nossos grupos."
+]
+}
 };
 
+const atividades = [
+{
+nome:"🎵 Ouvir música",
+texto:"Escolha suas músicas favoritas, sente-se confortavelmente e aproveite. Você também pode compartilhar uma canção com alguém."
+},
+{
+nome:"📖 Ler um livro",
+texto:"Escolha um livro, revista, poesia ou história curta. Leia algumas páginas sem pressa. Se preferir, peça para alguém ler com você."
+},
+{
+nome:"🚶 Fazer uma caminhada",
+texto:"Se sua saúde permitir, caminhe por alguns minutos em um local seguro. Use calçados confortáveis e respeite seu ritmo."
+},
+{
+nome:"🧘 Relaxar e respirar",
+texto:"Sente-se confortavelmente, relaxe os ombros e respire de forma lenta e natural durante alguns instantes."
+},
+{
+nome:"🌱 Cuidar de plantas",
+texto:"Regue uma planta, observe suas folhas ou organize um pequeno cantinho verde. O contato com a natureza pode ser agradável."
+},
+{
+nome:"🎨 Pintar e desenhar",
+texto:"Separe papel e lápis de cor. Desenhe flores, paisagens ou lembranças. Não precisa ficar perfeito: o importante é aproveitar."
+},
+{
+nome:"🧩 Jogos de memória",
+texto:"Experimente palavras cruzadas, caça-palavras, quebra-cabeças ou jogos simples. Convide alguém para participar."
+},
+{
+nome:"☕ Conversar com amigos",
+texto:"Ligue para alguém querido ou entre no grupo Roda de Conversa. Pergunte como foi o dia e compartilhe uma lembrança."
+},
+{
+nome:"🍎 Preparar uma receita",
+texto:"Escolha uma receita simples de que você gosta. Se precisar, peça ajuda e tenha cuidado com objetos quentes ou cortantes."
+},
+{
+nome:"📸 Rever fotografias",
+texto:"Separe algumas fotos antigas e recorde histórias especiais. Você pode contar essas lembranças para amigos ou familiares."
+},
+{
+nome:"🧶 Fazer artesanato",
+texto:"Experimente crochê, bordado, colagem ou outra atividade manual que você goste e consiga realizar confortavelmente."
+},
+{
+nome:"💃 Dançar",
+texto:"Coloque uma música animada e movimente-se no seu ritmo, sentado ou em pé, conforme sua capacidade e segurança."
+},
+{
+nome:"✍️ Escrever lembranças",
+texto:"Escreva uma lembrança feliz, uma história da infância ou uma mensagem para alguém especial."
+},
+{
+nome:"📞 Fazer uma ligação",
+texto:"Escolha uma pessoa de confiança e faça uma ligação. Uma conversa simples pode alegrar o dia dos dois."
+},
+{
+nome:"🌤️ Aproveitar o ar livre",
+texto:"Se for possível e seguro, passe alguns minutos em uma varanda, jardim ou praça, observando o ambiente."
+},
+{
+nome:"🙏 Praticar gratidão",
+texto:"Pense em três coisas boas do seu dia, mesmo que pequenas. Se quiser, anote ou compartilhe com alguém."
+}
+];
+
 function abrir(tela){
- document.getElementById('inicio').classList.add('escondido');
- document.getElementById('conteudo').classList.remove('escondido');
- document.getElementById('painel').innerHTML=telas[tela];
- window.scrollTo(0,0);
+const painel=document.getElementById("painel");
+
+if(tela==="amizades"){
+painel.innerHTML=`
+<div class="centro">
+<h2>💜 Encontre sua turma!</h2>
+<p>Escolha um assunto de que você gosta e conheça pessoas com interesses parecidos.</p>
+</div>
+${listaGrupos()}
+<div class="aviso">
+🔒 Por segurança, não compartilhe senhas, documentos ou informações bancárias nos grupos. Para encontros presenciais, prefira locais públicos e atividades organizadas.
+</div>
+`;
+}
+
+if(tela==="sentimentos"){
+painel.innerHTML=`
+<div class="centro">
+<h2>💚 Como estou me sentindo?</h2>
+<p>Seus sentimentos importam!</p>
+<p>Escolha a opção que mais combina com você hoje.</p>
+</div>
+<button onclick="mostrarSentimento('feliz')">😊 Feliz</button>
+<button onclick="mostrarSentimento('triste')">😢 Triste</button>
+<button onclick="mostrarSentimento('cansado')">😴 Cansado</button>
+<button onclick="mostrarSentimento('sozinho')">🫂 Sozinho</button>
+<button onclick="mostrarSentimento('ansioso')">😰 Ansioso</button>
+<button onclick="mostrarSentimento('tranquilo')">😌 Tranquilo</button>
+<button onclick="mostrarSentimento('animado')">🥰 Animado</button>
+<div id="resultado" aria-live="polite"></div>
+`;
+}
+
+if(tela==="atividades"){
+painel.innerHTML=`
+<div class="centro">
+<h2>🌷 Atividades e bem-estar</h2>
+<p>Que tal experimentar algo diferente hoje?</p>
+<p>Escolha uma atividade para descobrir como fazer.</p>
+</div>
+${atividades.map((atividade,i)=>`
+<button onclick="mostrarAtividade(${i})">
+${atividade.nome}
+</button>
+`).join("")}
+<div id="resultado" aria-live="polite"></div>
+<div class="aviso">
+💜 Escolha atividades adequadas à sua saúde e às suas possibilidades. Você pode adaptar ou interromper qualquer atividade quando precisar.
+</div>
+`;
+}
+
+if(tela==="companhia"){
+painel.innerHTML=`
+<div class="centro">
+<h2>🫂 Preciso de companhia</h2>
+<p>Você não precisa passar o dia sozinho.</p>
+<p>Nosso projeto quer aproximar pessoas, criar amizades e oferecer um espaço acolhedor para boas conversas.</p>
+<p><strong>Escolha um grupo e venha fazer parte da nossa comunidade!</strong></p>
+</div>
+${listaGrupos()}
+<div class="aviso">
+💜 Se estiver passando por um momento muito difícil, procure alguém de confiança ou uma unidade de saúde. Os grupos são espaços de convivência e não substituem atendimento profissional.
+</div>
+`;
+}
+
+document.getElementById("inicio").classList.add("escondido");
+document.getElementById("conteudo").classList.remove("escondido");
+window.scrollTo(0,0);
+}
+
+function mostrarSentimento(tipo){
+const item=sentimentos[tipo];
+const dicas=item.dicas.map(dica=>`<p>${dica}</p>`).join("");
+
+let extra="";
+if(tipo==="sozinho"){
+extra=`
+<button onclick="abrir('companhia')">
+💜 Conhecer nossos grupos
+</button>
+`;
+}
+
+document.getElementById("resultado").innerHTML=`
+<div class="resultado">
+<h3>${item.titulo}</h3>
+<p>${item.texto}</p>
+<h3>🌷 Algumas sugestões para você:</h3>
+${dicas}
+${extra}
+</div>
+`;
+document.getElementById("resultado").scrollIntoView({
+behavior:"smooth",block:"nearest"
+});
+}
+
+function mostrarAtividade(numero){
+const item=atividades[numero];
+document.getElementById("resultado").innerHTML=`
+<div class="resultado">
+<h3>${item.nome}</h3>
+<p>${item.texto}</p>
+<p>💜 Faça no seu tempo e aproveite o momento!</p>
+</div>
+`;
+document.getElementById("resultado").scrollIntoView({
+behavior:"smooth",block:"nearest"
+});
 }
 
 function voltar(){
- document.getElementById('conteudo').classList.add('escondido');
- document.getElementById('inicio').classList.remove('escondido');
- window.scrollTo(0,0);
+document.getElementById("conteudo").classList.add("escondido");
+document.getElementById("inicio").classList.remove("escondido");
+window.scrollTo(0,0);
 }
 
-function mostrar(mensagem){
- document.getElementById('resultado').textContent=mensagem;
-}
-
-function sentir(tipo){
- const mensagens={
- feliz:'Que bom! Compartilhar sua alegria com alguém pode tornar esse momento ainda melhor. 💛',
- triste:'Tudo bem reconhecer a tristeza. Converse com alguém de confiança e procure apoio se precisar. 💜',
- sozinho:'Você merece companhia e acolhimento. Uma atividade coletiva pode ser um primeiro passo para criar vínculos. 💜',
- tranquilo:'Que bom encontrar um momento de paz! Aproveite para fazer algo de que gosta. 🌷'
- };
- mostrar(mensagens[tipo]);
-}
 </script>
 </body>
 </html>
